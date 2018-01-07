@@ -15,8 +15,8 @@ export default new GraphQLObjectType({
     email: {type: new GraphQLNonNull(GraphQLString)},
     password: {type: new GraphQLNonNull(GraphQLString)},
     token: {type: GraphQLString},
-    follower: {type: new GraphQLList(new GraphQLNonNull(GraphQLID))},
-    following: {type: new GraphQLList(new GraphQLNonNull(GraphQLID))},
+    /* follower: {type: new GraphQLList(new GraphQLNonNull(GraphQLID))},
+    following: {type: new GraphQLList(new GraphQLNonNull(GraphQLID))}, */
     /* total: {
       type: GraphQLInt,
       resolve: async root => {
@@ -26,7 +26,7 @@ export default new GraphQLObjectType({
     },
     posts: {
       type: new GraphQLList(new GraphQLNonNull(PostType)),
-      resolve: async root => await Post.find({uid: root._id})
+      resolve: root => Post.find({uid: root._id})
     } */
   })
 })
