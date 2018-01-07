@@ -6,6 +6,8 @@ import {
   GraphQLList,
   GraphQLString
 } from 'graphql'
+import {Post} from '../../models'
+import {PostType} from './'
 
 export default new GraphQLObjectType({
   name: 'User',
@@ -15,9 +17,7 @@ export default new GraphQLObjectType({
     email: {type: new GraphQLNonNull(GraphQLString)},
     password: {type: new GraphQLNonNull(GraphQLString)},
     token: {type: GraphQLString},
-    /* follower: {type: new GraphQLList(new GraphQLNonNull(GraphQLID))},
-    following: {type: new GraphQLList(new GraphQLNonNull(GraphQLID))}, */
-    /* total: {
+    total_post: {
       type: GraphQLInt,
       resolve: async root => {
         const totalPosts = await Post.find({uid: root._id})
@@ -27,6 +27,8 @@ export default new GraphQLObjectType({
     posts: {
       type: new GraphQLList(new GraphQLNonNull(PostType)),
       resolve: root => Post.find({uid: root._id})
-    } */
+    }
+    /* follower: {type: new GraphQLList(new GraphQLNonNull(GraphQLID))},
+    following: {type: new GraphQLList(new GraphQLNonNull(GraphQLID))}, */
   })
 })

@@ -6,8 +6,8 @@ import {
   GraphQLString,
   GraphQLList
 } from 'graphql'
-import {User} from '../../models'
-import {UserType} from './'
+import {User, Post, Comment} from '../../models'
+import {UserType, CommentType} from './'
 
 export default new GraphQLObjectType({
   name: 'Post',
@@ -16,17 +16,20 @@ export default new GraphQLObjectType({
     uid: {type: new GraphQLNonNull(GraphQLID)},
     photo: {type: new GraphQLNonNull(GraphQLString)},
     caption: {type: new GraphQLNonNull(GraphQLString)},
-    user: {
+    posted_by: {
       type: new GraphQLNonNull(UserType),
       resolve: root => User.findOne({_id: root.uid})
-    }
-    /* likes: {
+    },
+    likes: {
       type: new GraphQLList(new GraphQLNonNull(UserType)),
-      resolve: root => User.find({_id: root._uid})
-    }, */
-    /* comments: {
+      resolve: async root => {
+        const post = await Post.findOne({_id: root.id}).populate('likes')
+        return post.likes
+      }
+    },
+    comments: {
       type: new GraphQLList(new GraphQLNonNull(CommentType)),
       resolve: root => Comment.find({pid: root._id})
-    } */
+    }
   })
 })

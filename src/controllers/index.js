@@ -6,7 +6,8 @@ import {
 } from './queries'
 import {
   createUser, updateUser, removeUser, login,
-  createPost, updatePost, removePost
+  createPost, updatePost, removePost, likePost, unlikePost,
+  createComment, updateComment, removeComment
 } from './mutations'
 
 export default new GraphQLSchema({
@@ -22,7 +23,8 @@ export default new GraphQLSchema({
     name: 'Mutation',
     fields: {
       createUser, updateUser, removeUser, login,
-      createPost, updatePost, removePost
+      createPost, updatePost, removePost, likePost, unlikePost,
+      createComment, updateComment, removeComment
     }
   })
 })

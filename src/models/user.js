@@ -28,7 +28,7 @@ export default mongoose.model('users', {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'users'
   }],
-  post: [{
+  posts: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'posts'
   }]
