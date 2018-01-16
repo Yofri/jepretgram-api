@@ -11,7 +11,7 @@ export default {
   },
   resolve: async (root, args) => {
     const post = await Post.create(args)
-    await User.findByIdAndUpdate({_id: args.uid}, {
+    await User.findByIdAndUpdate(args.uid, {
       $push: {'posts': post._id}
     })
     return post

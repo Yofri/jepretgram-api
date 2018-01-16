@@ -5,8 +5,8 @@ import {
   allComments, findComment
 } from './queries'
 import {
-  createUser, updateUser, removeUser, login,
-  createPost, updatePost, removePost, likePost, unlikePost,
+  login, createUser, updateUser, removeUser, toggleFollow,
+  createPost, updatePost, removePost, toggleLike,
   createComment, updateComment, removeComment
 } from './mutations'
 
@@ -22,8 +22,8 @@ export default new GraphQLSchema({
   mutation: new GraphQLObjectType({
     name: 'Mutation',
     fields: {
-      createUser, updateUser, removeUser, login,
-      createPost, updatePost, removePost, likePost, unlikePost,
+      login, createUser, updateUser, removeUser, toggleFollow,
+      createPost, updatePost, removePost, toggleLike,
       createComment, updateComment, removeComment
     }
   })

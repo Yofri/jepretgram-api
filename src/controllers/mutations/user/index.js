@@ -1,6 +1,7 @@
+import login from './login'
 import createUser from './create'
 import updateUser from './update'
 import removeUser from './remove'
-import login from './login'
+import toggleFollow from './togglefollow'
 
-export {createUser, updateUser, removeUser, login}
+export {login, createUser, updateUser, removeUser, toggleFollow}

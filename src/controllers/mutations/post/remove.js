@@ -7,7 +7,7 @@ export default {
   args: {id: {type: new GraphQLNonNull(GraphQLID)}},
   resolve: async (root, {id}) => {
     const post = await Post.findByIdAndRemove(id)
-    await User.findByIdAndUpdate({_id: post.uid}, {
+    await User.findByIdAndUpdate(post.uid, {
       $pull: {'posts': post._id}
     })
     return post

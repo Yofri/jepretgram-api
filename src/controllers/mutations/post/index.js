@@ -1,7 +1,6 @@
 import createPost from './create'
 import updatePost from './update'
 import removePost from './remove'
-import likePost from './like'
-import unlikePost from './unlike'
+import toggleLike from './togglelike'
 
-export {createPost, updatePost, removePost, likePost, unlikePost}
+export {createPost, updatePost, removePost, toggleLike}

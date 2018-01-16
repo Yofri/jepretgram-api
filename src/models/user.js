@@ -20,7 +20,7 @@ export default mongoose.model('users', {
     required: true,
     minlength: 8
   },
-  follower: [{
+  followers: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'users'
   }],

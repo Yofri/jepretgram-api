@@ -6,6 +6,7 @@ import cors from 'cors'
 import morgan from 'morgan'
 
 const app = express()
+const port = process.env.PORT
 
 app.use(cors())
 app.use('/jepretgram', morgan('dev'), graphqlHTTP({
@@ -16,4 +17,4 @@ app.use('/jepretgram', morgan('dev'), graphqlHTTP({
 
 connection.on('error', () => console.log('Error connecting to database'))
 connection.once('open', () => console.log('Connected to database'))
-app.listen(3002, () => console.log('Express listening on port 3002'))
+app.listen(port, () => console.log(`Express listening on port ${port}`))

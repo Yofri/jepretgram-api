@@ -11,8 +11,8 @@ export default {
   },
   resolve: async (root, args) => {
     const comment = await Comment.create(args)
-    await Post.findByIdAndUpdate({_id: comment.pid}, {
-      $push: {'comments': comment._id}
+    await Post.findByIdAndUpdate(comment.pid, {
+      $push: {comments: comment._id}
     })
     return comment
   }
