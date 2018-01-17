@@ -73,6 +73,9 @@ typings/
 # dotenv environment variables file
 .env
 
+# Google cloud storage
+keyfile.json
+
 
 ### VisualStudioCode ###
 .vscode/*

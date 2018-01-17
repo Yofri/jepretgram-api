@@ -1,4 +1,5 @@
 import getProjection from './projection'
+import gcs from './gcs'
 import ValidationError from './validator'
 
-export {getProjection, ValidationError}
+export {getProjection, gcs, ValidationError}
